@@ -11,6 +11,6 @@ export interface Task {
           { id: 2, text: 'Walk the dog' },
           { id: 3, text: 'Learn React Native' }
         ]);
-      }, 1000);
+      }, 500);
     });
   };
