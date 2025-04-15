@@ -1,4 +1,4 @@
-// screens/ToDoListScreen.tsx
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, FlatList, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
@@ -16,18 +16,18 @@ interface FetchTasksResponse {
   text: string;
 }
 
-const ToDoListScreen: React.FC = ({ navigation }: any) => { //  // Typowanie propsów nawigacji
+const ToDoListScreen: React.FC = ({ navigation }: any) => {
   const [task, setTask] = useState<string>(''); //  stan do przechowywania tekstu zadania
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null); // stan do przechowywania ID edytowanego zadania
-  const { tasks, addTask, removeTask, editTask, toggleTaskCompletion } = useStore(); //  //  użycie sklepu Zustand do zarządzania stanem zadań
+  const { tasks, addTask, removeTask, editTask, toggleTaskCompletion } = useStore(); //  użycie  Zustand do zarządzania stanem zadań
 
-  const { isLoading, isError, refetch } = useQuery<FetchTasksResponse[], Error>({ //  //  użycie React Query do pobierania zadań
+  const { isLoading, isError, refetch } = useQuery<FetchTasksResponse[], Error>({ //  użycie React Query do pobierania zadań
     queryKey: ['tasks'], //  klucz zapytania
     queryFn: async () => { //  funkcja zapytania
       const data = await fetchTasks(); // pobieranie zadań z API
       const existingTexts = new Set(tasks.map((t) => t.text)); //  zbiór istniejących zadań
       data.forEach((fetchedTask) => { //  iteracja po pobranych zadaniach
-        if (!existingTexts.has(fetchedTask.text)) { //  //  sprawdzenie, czy zadanie już istnieje
+        if (!existingTexts.has(fetchedTask.text)) { //  sprawdzenie, czy zadanie już istnieje
           addTask(fetchedTask.text); //  dodanie zadania do stanu
         }
       });
@@ -46,7 +46,7 @@ const ToDoListScreen: React.FC = ({ navigation }: any) => { //  // Typowanie pro
     if (newText.trim()) {
       editTask(id, newText);
       setEditingTaskId(null);
-      setTask(''); // Zakończenie edycji
+      setTask('');
     }
   };
 
@@ -57,7 +57,7 @@ const ToDoListScreen: React.FC = ({ navigation }: any) => { //  // Typowanie pro
 
   return (
     <View style={styles.container}> 
-      {editingTaskId ? ( //  //  //  jeśli edytujemy zadanie, wyświetlamy pole tekstowe do edycji
+      {editingTaskId ? ( //  jeśli edytujemy zadanie, wyświetlamy pole tekstowe do edycji
         <TextInput
           value={task}
           onChangeText={setTask}
@@ -73,7 +73,7 @@ const ToDoListScreen: React.FC = ({ navigation }: any) => { //  // Typowanie pro
         />
       )}
 
-      <Button title={editingTaskId ? "Save Changes" : "Add Task"} onPress={() => { //  //  //  przycisk do dodawania lub edytowania zadania
+      <Button title={editingTaskId ? "Save Changes" : "Add Task"} onPress={() => { //  przycisk do dodawania lub edytowania zadania
         if (editingTaskId) {
           handleEditTask(editingTaskId, task);
         } else {
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   completedTask: {
-    textDecorationLine: 'line-through', // Przekreślenie zadania
+    textDecorationLine: 'line-through',
     color: 'gray',
   },
   buttonSpacing: {
