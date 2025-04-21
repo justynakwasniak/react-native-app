@@ -4,9 +4,9 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 const AboutScreen: React.FC = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>My first mobile app React Native CLI</Text>
+      <Text style={styles.title}>HOME</Text>
       <Text style={styles.text}>
-        This is a simple To-Do list application built with React Native, React Query, TS and Zustand.
+        This is a simple mobile application built with React Native, React Query, Type Script and Zustand.
       </Text>
       <Button
         title="Go to To-Do List"
