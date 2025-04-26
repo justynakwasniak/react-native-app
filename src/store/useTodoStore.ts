@@ -4,19 +4,19 @@ import { nanoid } from 'nanoid';
 interface Task {
   id: string;
   text: string;
-  isCompleted: boolean; //  status wykonania zadania
+  isCompleted: boolean;
 
 }
 
-interface TodoStore { //sklep zadan
-  tasks: Task[]; //lista zadan
-  addTask: (text: string) => void; //dodawanie zadan
-  removeTask: (id: string) => void; //usuwanie zadan
-  editTask: (id: string, newText: string) => void; //edycja zadan
-  toggleTaskCompletion: (id: string) => void; // przełączanie statusu wykonania zadania
+interface TodoStore {
+  tasks: Task[];
+  addTask: (text: string) => void;
+  removeTask: (id: string) => void;
+  editTask: (id: string, newText: string) => void;
+  toggleTaskCompletion: (id: string) => void;
 
 }
-const useStore = create<TodoStore>((set) => ({
+export const useStore = create<TodoStore>((set) => ({
   tasks: [],
   addTask: (text: string) =>
     set((state) => ({
@@ -40,4 +40,3 @@ const useStore = create<TodoStore>((set) => ({
     })),
 }));
 
-export default useStore;

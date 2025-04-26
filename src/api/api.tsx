@@ -1,4 +1,3 @@
-
 export interface Task {
     id: number;
     text: string;
@@ -9,7 +8,7 @@ export interface Task {
         resolve([
           { id: 1, text: 'Buy groceries' },
           { id: 2, text: 'Walk the dog' },
-          { id: 3, text: 'Learn React Native' }
+          { id: 3, text: 'Learn React Native'},
         ]);
       }, 500);
     });
