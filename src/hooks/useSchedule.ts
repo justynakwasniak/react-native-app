@@ -3,14 +3,12 @@ import { fetchEvents } from '../api/events';
 import { CalendarEvent } from '../components/Schedule/types';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
 import { getApps, initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../utils/formatTime';
 
-const firebaseConfig = {
-  authDomain: 'react-native.firebaseapp.com',
-  projectId: 'react-native-423ce',
-};
+
 
 const firebaseApp = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-const db = getFirestore(firebaseApp);
+const db = getFirestore(firebaseApp); //
 
 export const useSchedule = () => {
   const queryClient = useQueryClient();

@@ -1,10 +1,12 @@
 import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { CalendarEvent } from '../components/Schedule/types';
+import { FIREBASE_AUTH_DOMAIN, FIREBASE_PROJECT_ID } from '@env';
 
-const firebaseConfig = { //
-  authDomain: 'react-native.firebaseapp.com',
-  projectId: 'react-native-423ce',
+
+const firebaseConfig = {
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_PROJECT_ID,
 };
 
 const firebaseApp = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];

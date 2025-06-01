@@ -1,14 +1,22 @@
 {
   "compilerOptions": {
-    "jsx": "react-native",
     "target": "esnext",
-    "moduleResolution": "node",
     "module": "esnext",
+    "jsx": "react-native",
+    "moduleResolution": "node",
     "allowJs": true,
     "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "types": ["react-native"]
   },
-  "include": ["src/**/*", "__tests__/Schedule.test.tsx"],
+  "include": [
+    "src/**/*",
+    "env.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

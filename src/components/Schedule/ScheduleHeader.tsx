@@ -10,13 +10,17 @@ type Props = {
 const ScheduleHeader = ({ currentDate, changeDay }: Props) => {
   return (
     <View style={styles.headerContainer}>
-      <TouchableOpacity onPress={() => changeDay(-1)} style={styles.button}>
-        <Text style={styles.buttonText}>←</Text>
-      </TouchableOpacity>
-      <Text style={styles.dateText}>{format(currentDate, 'dd.MM.yyyy')}</Text>
-      <TouchableOpacity onPress={() => changeDay(1)} style={styles.button}>
-        <Text style={styles.buttonText}>→</Text>
-      </TouchableOpacity>
+     <TouchableOpacity testID="prev-day" onPress={() => changeDay(-1)} style={styles.button}>
+  <Text style={styles.buttonText}>←</Text>
+</TouchableOpacity>
+
+<Text testID="test-current-day" style={styles.dateText}>
+  {format(currentDate, 'dd.MM.yyyy')}
+</Text>
+
+<TouchableOpacity testID="next-day" onPress={() => changeDay(1)} style={styles.button}>
+  <Text style={styles.buttonText}>→</Text>
+</TouchableOpacity>
     </View>
   );
 };

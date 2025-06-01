@@ -32,9 +32,10 @@ const ScheduleDay = ({ date, events, onEventClick, onEmptyDateClick }: Props) =>
         return (
           <View key={hour} style={styles.hourBlock}>
             {eventAtHour ? (
-              <ScheduleEvent event={eventAtHour} onEventClick={onEventClick} />
+              <ScheduleEvent event={eventAtHour} onEventClick={onEventClick}  />
             ) : (
-              <TouchableOpacity onPress={() => onEmptyDateClick(blockTime)}>
+              <TouchableOpacity   testID={`empty-slot-${hour}`}
+ onPress={() => onEmptyDateClick(blockTime)}>
                 <Text style={styles.hourLabel}>{`${hour}:00`}</Text>
                 <Text style={styles.emptyText}>Add Event</Text>
               </TouchableOpacity>
