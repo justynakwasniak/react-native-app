@@ -1,5 +1,9 @@
 name: Run Unit Tests on PR
 
+permissions:
+  pull-requests: write
+  contents: read
+
 on: 
   pull_request:
     branches:
