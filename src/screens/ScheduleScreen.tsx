@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, Text } from 'react-native';
+import { ActivityIndicator, Text, View, StyleSheet } from 'react-native';
 import Schedule from '../components/Schedule/Schedule';
 import { useSchedule } from '../hooks/useSchedule';
 
@@ -14,12 +14,20 @@ const ScheduleScreen = () => {
   }
 
   return (
-    <Schedule
-      events={events}
-      onEventClick={handleEventClick}
-      onEmptyDateClick={handleEmptyDateClick}
-    />
+    <View style={styles.container}>
+      <Schedule
+        events={events}
+        onEventClick={handleEventClick}
+        onEmptyDateClick={handleEmptyDateClick}
+      />
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default ScheduleScreen;
