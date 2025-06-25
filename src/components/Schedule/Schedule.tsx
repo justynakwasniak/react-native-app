@@ -11,6 +11,8 @@ type Props = {
   onEmptyDateClick: (date: Date) => void;
 };
 
+//note
+
 const Schedule = ({ events, onEventClick, onEmptyDateClick }: Props) => { 
   const currentDate = useScheduleStore(state => state.currentDate);
   const nextDay = useScheduleStore(state => state.nextDay);
